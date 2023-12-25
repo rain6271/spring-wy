@@ -23,6 +23,7 @@
     <modules>
         <module>spring-pr</module>
         <module>spring-zdy</module>
+        <module>function</module>
     </modules>
 
     <dependencies>
