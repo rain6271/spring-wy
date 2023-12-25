@@ -1,9 +1,11 @@
 package com.wy.spring.test;
 
+import com.wy.spring.AppConfig;
 import com.wy.spring.bean.UserService;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -19,7 +21,7 @@ import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 public class SpringTest {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 //        AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
 //        beanDefinition.setBeanClass(UserService.class);
 //        context.registerBeanDefinition("userService", beanDefinition);
@@ -37,9 +39,22 @@ public class SpringTest {
 //        xmlBeanDefinitionReader.loadBeanDefinitions("spring.xml");
 //        context.refresh();
 //        System.out.println(context.getBean("userService"));
-        ClassPathBeanDefinitionScanner scanner = new ClassPathBeanDefinitionScanner(context);
-        scanner.scan("com.wy.spring.bean");
+
+//        ClassPathBeanDefinitionScanner scanner = new ClassPathBeanDefinitionScanner(context);
+//        scanner.scan("com.wy.spring.bean");
+//        context.refresh();
+//        System.out.println(context.getBean("userService"));
+
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
+        beanDefinition.setBeanClass(UserService.class);
+        beanFactory.registerBeanDefinition("userService", beanDefinition);
+        System.out.println(beanFactory.getBean("userService"));
         context.refresh();
-        System.out.println(context.getBean("userService"));
+        Object userService = context.getBean("userService");
+        System.out.println(userService);
+
+
+
     }
 }

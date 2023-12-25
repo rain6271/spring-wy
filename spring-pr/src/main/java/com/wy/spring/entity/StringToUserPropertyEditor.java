@@ -14,12 +14,12 @@ import java.beans.PropertyEditorSupport;
  * @date 2023/11/29 16:37
  */
 @Component
-public class SpringToUserPropertyEditor extends PropertyEditorSupport implements PropertyEditor {
+public class StringToUserPropertyEditor extends PropertyEditorSupport implements PropertyEditor {
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
         User user = new User();
         user.setName(text);
-        this.setValue(user);
+//        this.setValue(user);
         super.setValue(user);
     }
 }
