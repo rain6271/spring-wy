@@ -1,7 +1,8 @@
 package org.springframework.function.Interface;
 
 @FunctionalInterface
-public interface MyPredicate<T> {
+public interface MyPredicate2<T, U> {
 
-    void test(T t);
+    boolean predicate(T t, U u);
+
 }
