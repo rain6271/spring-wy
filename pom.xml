@@ -24,6 +24,8 @@
         <module>spring-pr</module>
         <module>spring-zdy</module>
         <module>function</module>
+        <module>spi</module>
+        <module>spi-1</module>
     </modules>
 
     <dependencies>

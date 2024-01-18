@@ -49,7 +49,7 @@ public class SpringTest {
         AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
         beanDefinition.setBeanClass(UserService.class);
         beanFactory.registerBeanDefinition("userService", beanDefinition);
-        System.out.println(beanFactory.getBean("userService"));
+//        System.out.println(beanFactory.getBean("userService"));
         context.refresh();
         Object userService = context.getBean("userService");
         System.out.println(userService);
