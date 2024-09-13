@@ -26,7 +26,7 @@
         <module>function</module>
         <module>spi</module>
         <module>spi-1</module>
-        <module>mybatis</module>
+        <module>mybatis-pra</module>
     </modules>
 
     <dependencies>
